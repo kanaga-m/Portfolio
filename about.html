@@ -47,6 +47,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
             backdrop-filter: blur(10px);
         }
 
@@ -81,39 +82,42 @@
 
         nav .navlinks li {
             margin-right: 2.5rem;
+            
+
         }
 
         nav .navlinks li a {
             color: violet;
             text-decoration: none;
             font-size: 1rem;
-            background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid');
-            background-size: cover;
-        }
+            background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid',width:50%,height:70%);
+        background-size:cover;
 
+
+            }
         nav .navlinks li a:hover {
             color: darkviolet;
         }
 
         .togglebtn {
             width: 35px;
-            height: 30px;
-            position: absolute;
-            top: 35px;
-            right: 3%;
-            z-index: 5;
-            cursor: pointer;
-            display: block;
+    height: 30px;
+    position: absolute;
+    top:35px;
+    right: 3%;
+    z-index: 5;
+    cursor: pointer;
+    display: none;
         }
 
         .togglebtn span {
-            display: block;
-            background-color: violet;
-            margin: 5px 0px;
-            width: 100%;
-            height: 3px;
-            transition: 0.3s;
-            transition-property: transform, opacity;
+           display: block;
+    background-color: violet;
+    margin: 5px 0px;
+    width:100%;
+    height:3px;
+    transition: 0.3s;
+    transition-property:  transform, opacity;
         }
 
         .container {
@@ -199,23 +203,6 @@
 
             nav .navlinks li {
                 margin-bottom: 15px;
-            }
-
-            .container h1 {
-                font-size: 2rem;
-                text-align: center;
-                margin-bottom: 15px;
-            }
-
-            .about-content {
-                max-width: 100%;
-                padding: 15px;
-                font-size: 16px;
-            }
-
-            .hero-pic {
-                width: 250px;
-                height: 250px;
             }
         }
 
