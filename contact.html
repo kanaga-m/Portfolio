@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Kanagalakshmi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        * {
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+            font-family: Times New Roman;
+        }
+
+        body {
+            background-color: #f4f4f9;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero-header {
+            width: 100%;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .wrapper {
+            width: 1280px;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+        }
+
+        .logo {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .logo i {
+            height: 45px;
+            width: 45px;
+            background-color: violet;
+            border-radius: 50%;
+            color: white;
+            font-weight: 700;
+            font-size: 1.5rem;
+            padding: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .logo .logo-text {
+            font-family: Times New Roman;
+            font-size: 24px;
+            font-weight: 500;
+            color: black;
+        }
+
+        nav .navlinks {
+            list-style-type: none;
+            display: flex;
+            align-items: center;
+            transition: none;
+        }
+
+        nav .navlinks li {
+            display: inline-block;
+        }
+
+        nav .navlinks li a {
+            color: violet;
+            margin-right: 2.5rem;
+            text-decoration: none;
+        }
+
+        nav .navlinks li a:hover {
+            color: darkviolet;
+        }
+
+        /* Toggle menu styles */
+        .togglebtn {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 15px;
+            right: 3%;
+            z-index: 5;
+            cursor: pointer;
+            display: none;
+        }
+
+        .togglebtn span {
+            display: block;
+            background-color: violet;
+            margin: 5px 0px;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+        }
+
+        nav .navlinks {
+            flex-direction: row;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .togglebtn {
+                display: block;
+            }
+
+            nav .navlinks {
+                position: absolute;
+                top: 70px;
+                right: -100%;
+                width: 60%;
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: right 0.3s ease;
+                opacity: 0;
+            }
+
+            nav .navlinks.open {
+                right: 0;
+                opacity: 1;
+            }
+
+            nav .navlinks li {
+                margin-bottom: 15px;
+            }
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-top: 6rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .container h1 {
+            font-size: 2.5rem;
+            color: black;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-container {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
+            padding: 30px;
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .form-container.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .form-container label {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        .form-container input,
+        .form-container textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+            color: black;
+        }
+
+        .form-container textarea {
+            height: 150px;
+            resize: none;
+        }
+
+        .form-container button {
+            padding: 12px 30px;
+            background-color: violet;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .form-container button:hover {
+            background-color: darkviolet;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero-header">
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-regular fa-k"></i>
+                    <div class="logo-text">Kanagalakshmi</div>
+                </div>
+                <nav>
+                    <div class="togglebtn" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                <h1>Contact Us</h1>
+                <div class="form-container">
+                    <form action="submit_form.php" method="POST">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Kanagalakshmi. All rights reserved.
+    </footer>
+    <script>
+        // Toggle navigation menu
+        function toggleMenu() {
+            const navLinks = document.querySelector('.navlinks');
+            navLinks.classList.toggle('open');
+        }
+
+        // Add animation to form on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const formContainer = document.querySelector('.form-container');
+            setTimeout(() => {
+                formContainer.classList.add('show');
+            }, 500); // Delay before starting animation
+        });
+    </script>
+</body>
+</html>
