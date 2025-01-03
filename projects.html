@@ -4,14 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Kanagalakshmi</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
             padding: 0;
             margin: 0;
-            font-family: Times New Roman;
+            font-family: "Times New Roman", serif;
         }
 
         body {
@@ -31,13 +29,6 @@
             background-position: center;
         }
 
-        .wrapper {
-            width: 1280px;
-            max-width: 95%;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
         header {
             position: fixed;
             top: 0;
@@ -48,12 +39,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
+            background-color: rgba(255, 255, 255, 0.8);
         }
 
         .logo {
             display: inline-flex;
-            justify-content: center;
             align-items: center;
         }
 
@@ -65,14 +55,13 @@
             color: white;
             font-weight: 700;
             font-size: 1.5rem;
-            padding: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
             margin-right: 5px;
-            cursor: pointer;
-            text-align: center;
         }
 
         .logo .logo-text {
-            font-family: Times New Roman;
             font-size: 24px;
             font-weight: 500;
             color: black;
@@ -81,12 +70,10 @@
         nav .navlinks {
             list-style-type: none;
             display: flex;
-            align-items: center;
         }
 
         nav .navlinks li {
-            display: inline-block;
-            margin: 0 15px;
+            margin: 0 10px;
         }
 
         nav .navlinks li a {
@@ -99,117 +86,79 @@
             color: darkviolet;
         }
 
-        /* Toggle menu styles */
+        /* Responsive Menu */
         nav .togglebtn {
-            width: 35px;
-            height: 35px;
-            position: absolute;
-            top: 15px;
-            right: 3%;
-            z-index: 5;
-            cursor: pointer;
             display: none;
         }
 
-        nav .togglebtn span {
-            display: block;
-            background-color: violet;
-            margin: 5px 0px;
-            width: 100%;
-            height: 3px;
-            transition: 0.3s;
-        }
-
-        /* Mobile styles */
         @media (max-width: 768px) {
             nav .togglebtn {
                 display: block;
+                cursor: pointer;
             }
 
             nav .navlinks {
-                position: absolute;
-                top: 70px;
-                right: -100%;
-                width: 60%;
-                background: rgba(255, 255, 255, 0.9);
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                display: none;
                 flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                transition: right 0.3s ease;
-                opacity: 0;
+                background: rgba(255, 255, 255, 0.9);
+                position: absolute;
+                top: 60px;
+                right: 10px;
+                width: 200px;
+                padding: 10px;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             }
 
             nav .navlinks.open {
-                right: 0;
-                opacity: 1;
+                display: flex;
             }
 
             nav .navlinks li {
-                margin-bottom: 15px;
-                opacity: 0;
-                transform: translateY(20px);
-                transition: opacity 0.3s ease, transform 0.3s ease;
-            }
-
-            nav .navlinks.open li {
-                opacity: 1;
-                transform: translateY(0);
+                margin: 10px 0;
             }
         }
 
         .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding-top: 6rem;
+            margin-top: 70px;
+            padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
         }
 
         .container h1 {
-            font-size: 2.5rem;
-            color: black;
-            margin-bottom: 20px;
+            font-size: 2rem;
             text-align: center;
+            margin-bottom: 20px;
+            color: black;
         }
 
         .project-box-wrapper {
             display: flex;
-            justify-content: space-between;
             flex-wrap: wrap;
+            justify-content: center;
             gap: 20px;
-            width: 100%;
         }
 
         .project-box {
-            width: calc(33% - 20px);
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
+            padding: 15px;
+            width: 90%;
+            max-width: 300px;
             text-align: center;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .project-box.show {
-            opacity: 1;
-            transform: translateY(0);
+            transition: transform 0.3s ease, opacity 0.3s ease;
         }
 
         .project-box h2 {
-            font-size: 25px;
+            font-size: 1.5rem;
             color: violet;
             margin-bottom: 10px;
         }
 
         .project-box p {
-            font-size: 20px;
+            font-size: 1rem;
             color: black;
-            line-height: 1.5;
             text-align: justify;
         }
 
@@ -223,69 +172,59 @@
 </head>
 <body>
     <div class="hero-header">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <i class="fa-regular fa-k"></i>
-                    <div class="logo-text">Kanagalakshmi</div>
+        <header>
+            <div class="logo">
+                <i>K</i>
+                <div class="logo-text">Kanagalakshmi</div>
+            </div>
+            <nav>
+                <div class="togglebtn">☰</div>
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <h1>Projects</h1>
+            <div class="project-box-wrapper">
+                <div class="project-box">
+                    <h2>Breast Cancer Prediction</h2>
+                    <p>Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p>
                 </div>
-                <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul class="navlinks">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="container">
-                <h1>Projects</h1>
-                <div class="project-box-wrapper">
-                    <div class="project-box">
-                        <h2>Breast Cancer Prediction</h2>
-                        <p>Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p>
-                    </div>
-                    <div class="project-box">
-                        <h2>Responsive Portfolio</h2>
-                        <p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.</p>
-                    </div>
-                    <div class="project-box">
-                        <h2>Bank Management System</h2>
-                        <p>Using Java, this project could serve as an interactive console-based system to manage bank operations like account creation, deposits, withdrawals, balance inquiry, and transaction history.</p>
-                    </div>
+                <div class="project-box">
+                    <h2>Responsive Portfolio</h2>
+                    <p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.</p>
+                </div>
+                <div class="project-box">
+                    <h2>Bank Management System</h2>
+                    <p>Using Java, this project serves as an interactive console-based system for bank operations like account creation, deposits, withdrawals, and balance inquiries.</p>
                 </div>
             </div>
         </div>
     </div>
     <footer>
-        &copy; 2024 Kanagalakshmi. All rights reserved.
+        &copy; 2025 Kanagalakshmi. All rights reserved.
     </footer>
     <script>
-        // Toggle menu functionality
-        const togglebtn = document.querySelector(".togglebtn");
-        const navLinks = document.querySelector(".navlinks");
-        
-        togglebtn.addEventListener("click", function () {
-            this.classList.toggle("click");
-            navLinks.classList.toggle("open");
+        // Mobile Menu Toggle
+        document.querySelector('.togglebtn').addEventListener('click', () => {
+            document.querySelector('.navlinks').classList.toggle('open');
         });
 
-        // Add animation to project boxes on page load
+        // Project Animation
         document.addEventListener('DOMContentLoaded', () => {
             const projectBoxes = document.querySelectorAll('.project-box');
-
             setTimeout(() => {
                 projectBoxes.forEach((box, index) => {
                     setTimeout(() => {
-                        box.classList.add('show');
-                    }, index * 300); // Delay for cascading effect
+                        box.style.opacity = '1';
+                        box.style.transform = 'translateY(0)';
+                    }, index * 200);
                 });
-            }, 500); // Delay before starting animation
+            }, 300);
         });
     </script>
 </body>
