@@ -21,11 +21,10 @@
         }
         .hero-header {
             min-height: 100vh;
-            background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid') ;
-            background-repeat:no repeat;
-            background-attachment:fixed;
-            background-size:cover;
-            
+            background: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid') no-repeat center center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         .wrapper {
             max-width: 1280px;
@@ -85,7 +84,8 @@
             align-items: center;
             justify-content: space-between;
             flex-wrap: wrap;
-            padding: 40px 0;
+            gap: 20px;
+            text-align: center;
         }
         .hero-pic {
             flex: 1;
@@ -101,7 +101,7 @@
             transition: transform 0.5s;
         }
         .hero-pic img:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
         .hero-text {
             flex: 1;
@@ -115,7 +115,7 @@
             color: violet;
         }
         .hero-text h1 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             color: violet;
         }
         .hero-text p {
@@ -171,6 +171,7 @@
             }
             .container {
                 flex-direction: column;
+                text-align: center;
             }
         }
     </style>
