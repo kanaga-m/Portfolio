@@ -5,293 +5,178 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- Font Awesome CDN for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
-</head>
-<style>
-* {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-    font-family: Times New Roman;
-    text-decoration: none;
-}
-
-body {
-    overflow-x: hidden;
-}
-
-.hero-header {
-    width: 100%;
-    height: 100%;
-    min-height: 100vh;
-    background: white;
-    background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid');
-    background-size: cover;
-}
-
-.wrapper {
-    width: 1280px;
-    max-width: 95%;
-    margin: 0 auto;
-    padding: 0 20px;
-}
-
-header {
-    padding: 40px 0 30px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.logo {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.logo i {
-    height: 45px;
-    width: 45px;
-    background-color: violet;
-    border-radius: 50%;
-    color: white;
-    font-weight: 700;
-    font-size: 1.5rem;
-    padding: 10px;
-    margin-right: 5px;
-    cursor: pointer;
-    text-align: center;
-}
-
-.logo .logo-text {
-    font-family: Times New Roman;
-    font-size: 24px;
-    font-weight: 500;
-    color: black;
-}
-
-nav .togglebtn {
-    width: 35px;
-    height: 35px;
-    position: absolute;
-    top: 45px;
-    right: 3%;
-    z-index: 5;
-    cursor: pointer;
-    display: none;
-}
-
-nav .togglebtn span {
-    display: block;
-    background-color: violet;
-    margin: 5px 0px;
-    width: 100%;
-    height: 3px;
-    transition: 0.3s;
-    transition-property: transform, opacity;
-}
-
-nav .navlinks {
-    list-style-type: none;
-}
-
-nav .navlinks li {
-    display: inline-block;
-}
-
-nav .navlinks li a {
-    color: violet;
-    margin-right: 2.5rem;
-}
-
-nav .navlinks li a:hover {
-    color: darkviolet;
-}
-
-.container {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding-top: 4rem;
-}
-
-.container .hero-pic {
-    width: 300px;
-    height: 300px;
-    border-radius: 30%;
-    overflow: hidden;
-    border: 5px solid white;
-    box-shadow: 5px 15px 15px violet;
-}
-
-.hero-pic img {
-    height: 100%;
-    width: 100%;
-    transition: 0.5s;
-}
-
-.hero-pic img:hover {
-    transform: scale(1.2);
-}
-
-.hero-text {
-    max-width: 500px;
-    display: flex;
-    flex-direction: column;
-}
-
-.hero-text h5 {
-    color: black;
-    font-size: 14px;
-}
-
-.hero-text h5 span {
-    color: violet;
-    font-size: 16px;
-}
-
-.hero-text h1 {
-    color: violet;
-    font-size: 3rem;
-    font-family: Times New Roman;
-}
-
-.hero-text p {
-    font-size: 20px;
-    font-family: Times New Roman;
-    width: 400px;
-    padding: 20px;
-    border-radius: 30px;
-    background: rgba(255, 255, 255, 0.2);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 10px violet;
-    text-align: justify;
-    line-height: 1.6;
-    box-sizing: content-box;
-    transition: all 0.5s ease;
-}
-
-.btn-group {
-    margin: 45px 0;
-}
-
-.btn.active {
-    display: inline-block;
-    padding: 10px 20px;
-    background-color: violet;
-    color: white;
-    text-align: center;
-    border: none;
-    border-radius: 25px;
-    transition: background-color 0.3s ease;
-    box-shadow: 1px 2px 2px violet;
-    border: 1px solid white;
-}
-
-.btn.active:hover {
-    background-color: darkviolet;
-}
-
-.hero-text .social i {
-    color: black;
-    font-size: 18px;
-    margin-right: 10px;
-    transition: 0.5s;
-}
-
-.hero-text .social i:hover {
-    color: violet;
-    transform: rotate(360deg);
-}
-
-/* Responsive design & displaying navbar for small screen */
-@media(max-width: 930px) {
-    nav .togglebtn {
-        display: initial;
-    }
-
-    /* for toggle button **/
-    .click {
-        top: 45px;
-    }
-
-    .click span {
-        position: absolute;
-        margin-top: 12px;
-    }
-
-    .click span:first-child {
-        transform: rotate(-40deg);
-    }
-
-    .click span:nth-child(2) {
-        opacity: 0;
-        margin: 0;
-    }
-
-    .click span:last-child {
-        transform: rotate(45deg);
-        top: 0;
-    }
-
-    nav .navlinks {
-        position: absolute;
-        top: 110px;
-        right: -100%;
-        bottom: 0;
-        width: 60%;
-        background: rgba(255, 255, 255, 0.9);
-        height:160px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-        
-        z-index: 3;
-        transition: right 0.3s ease;
-        padding: 20px 0px;
-    }
-
-    nav .navlinks li {
-        display: block;
-    }
-
-    nav .navlinks li a {
-        display: block;
-        margin-bottom: 15px;
-        text-align: center;
-    }
-
-    nav .navlinks.open {
-        right: 0;
-    }
-}
-
-@media(max-width: 768px) {
-    .container {
-        flex-direction: column;
-        padding-top: 2rem;
-    }
-
-    .hero-text {
-        padding: 40px 0px;
-    }
-}
-  footer {
+    <style>
+        /* General reset and styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Times New Roman, serif;
+            text-decoration: none;
+        }
+        body {
+            overflow-x: hidden;
+            background: #f9f9f9;
+        }
+        .hero-header {
+            min-height: 100vh;
+            background: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid') no-repeat center center/cover;
+        }
+        .wrapper {
+            max-width: 1280px;
+            margin: auto;
+            padding: 20px;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        .logo i {
+            background: violet;
+            color: white;
+            font-size: 1.5rem;
+            padding: 10px;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+        .logo .logo-text {
+            font-size: 24px;
+            color: black;
+        }
+        nav .togglebtn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+        }
+        nav .togglebtn span {
+            background: violet;
+            height: 3px;
+            margin: 5px 0;
+            width: 25px;
+            transition: all 0.3s;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: violet;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: darkviolet;
+        }
+        .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 40px 0;
+        }
+        .hero-pic {
+            flex: 1;
+            max-width: 300px;
+            margin: 10px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 5px solid white;
+            box-shadow: 5px 10px 15px violet;
+        }
+        .hero-pic img {
+            width: 100%;
+            transition: transform 0.5s;
+        }
+        .hero-pic img:hover {
+            transform: scale(1.2);
+        }
+        .hero-text {
+            flex: 1;
+            padding: 20px;
+            max-width: 500px;
+        }
+        .hero-text h5 {
+            font-size: 14px;
+        }
+        .hero-text h5 span {
+            color: violet;
+        }
+        .hero-text h1 {
+            font-size: 2.5rem;
+            color: violet;
+        }
+        .hero-text p {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 20px;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px violet;
+            line-height: 1.6;
+        }
+        .btn-group a {
+            display: inline-block;
+            background: violet;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+        .btn-group a:hover {
+            background: darkviolet;
+        }
+        .social a {
+            margin: 0 10px;
+            font-size: 1.5rem;
+            color: black;
+        }
+        .social a:hover {
+            color: violet;
+        }
+        footer {
             text-align: center;
             padding: 20px;
-            background-color: #333;
+            background: #333;
             color: white;
         }
-
-</style>
-
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                right: -100%;
+                background: rgba(255, 255, 255, 0.9);
+                padding: 20px;
+                width: 200px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+            }
+            nav ul.open {
+                right: 0;
+            }
+            nav .togglebtn {
+                display: flex;
+            }
+            .container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
 <body>
     <div class="hero-header">
         <div class="wrapper">
             <header>
                 <div class="logo">
-                    <i class="fa-regular fa-k"></i>
+                    <i class="fa-solid fa-k"></i>
                     <div class="logo-text">Kanagalakshmi</div>
                 </div>
                 <nav>
@@ -301,31 +186,27 @@ nav .navlinks li a:hover {
                         <span></span>
                     </div>
                     <ul class="navlinks">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
                     </ul>
                 </nav>
             </header>
             <div class="container">
                 <div class="hero-pic">
-                    <img src="images/myprof2.jpeg" alt="profile pic">
+                    <img src="images/myprof2.jpeg" alt="Profile Picture">
                 </div>
                 <div class="hero-text">
-                    <h5>Hi I'm <span class="input">Student</span></h5>
-                    <h1>Kanagalakshmi M</h1><br />
-                    <p> I am an enthusiastic engineering fresher passionate about applying my skills to real-world challenges and driving innovation through continuous learning. </p>
+                    <h5>Hi, I'm <span>Student</span></h5>
+                    <h1>Kanagalakshmi M</h1>
+                    <p>I am an enthusiastic engineering fresher passionate about applying my skills to real-world challenges and driving innovation through continuous learning.</p>
                     <div class="btn-group">
-                        <a href="https://drive.google.com/file/d/1eUhYxgfkuFXlDZbhEpmd-Klmr-78Rwii/view?usp=drive_link" target="_blank" class="btn active">Download CV</a>
+                        <a href="#" target="_blank">Download CV</a>
                     </div>
                     <div class="social">
-                        <a href="https://www.linkedin.com/in/kanagalakshmi-m-96b04523b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin">
-                            <i class="fa-brands fa-linkedin"></i>
-                        </a>
-                        <a href="https://www.instagram.com/invites/contact/?igsh=t1i6s2964cnh&utm_content=m4y8xyy">
-                            <i class="fa-brands fa-instagram" target="_blank" class="instagram"></i>
-                        </a>
+                        <a href="#"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#"><i class="fa-brands fa-instagram"></i></a>
                         <a href="#"><i class="fa-brands fa-github"></i></a>
                     </div>
                 </div>
@@ -335,23 +216,11 @@ nav .navlinks li a:hover {
     <footer>
         &copy; 2024 Kanagalakshmi. All rights reserved.
     </footer>
-
-    <!-- Typed.js for typing text effect -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.10/typed.min.js"></script>
     <script>
-        
-        var togglebtn = document.querySelector(".togglebtn");
-        var nav = document.querySelector(".navlinks");
-        togglebtn.addEventListener("click", function () {
-            this.classList.toggle("click");
-            nav.classList.toggle("open");
-        });
-
-        var typed = new Typed(".input", {
-            strings: ["Student", "Front-end Developer"],
-            typedSpeed: 100,
-            backSpeed: 100,
-            loop: true
+        const togglebtn = document.querySelector('.togglebtn');
+        const navlinks = document.querySelector('.navlinks');
+        togglebtn.addEventListener('click', () => {
+            navlinks.classList.toggle('open');
         });
     </script>
 </body>
