@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Kanagalakshmi</title>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         * {
             box-sizing: border-box;
@@ -13,36 +12,22 @@
             font-family: "Times New Roman", serif;
         }
 
-        html, body {
-            height: 100%;
-            margin: 0;
-            display: flex;
-            flex-direction: column;
-        }
-
         body {
             background-color: #f4f4f9;
             color: #333;
             overflow-x: hidden;
         }
 
-        .content {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
         .hero-header {
             width: 100%;
-            height: 100vh; /* Full viewport height */
+            height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
             background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg');
-            background-size: cover; /* Ensures the image covers the area */
-            background-position: center; /* Centers the image */
-            background-repeat: no-repeat; /* Prevents repetition */
+            background-size: cover;
+            background-position: center;
         }
 
         header {
@@ -55,11 +40,11 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: transparent;
         }
 
         .logo {
             display: inline-flex;
+            justify-content: center;
             align-items: center;
         }
 
@@ -69,72 +54,87 @@
             background-color: violet;
             border-radius: 50%;
             color: white;
+            font-weight: 700;
             font-size: 1.5rem;
             display: flex;
             justify-content: center;
             align-items: center;
-            margin-right: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            font-style: normal;
         }
 
         .logo .logo-text {
-            font-size: 1.5rem;
-            font-weight: 200;
+            font-size: 24px;
+            font-weight: 500;
             color: black;
         }
 
         nav .navlinks {
             list-style-type: none;
             display: flex;
+            align-items: center;
         }
 
         nav .navlinks li {
-            margin: 0 10px;
+            display: inline-block;
         }
 
         nav .navlinks li a {
             color: violet;
+            margin-right: 2.5rem;
             text-decoration: none;
-            font-size: 1rem;
         }
 
         nav .navlinks li a:hover {
             color: darkviolet;
         }
 
-        /* Responsive Menu */
-        nav .togglebtn {
-            display: none;
-            background-color: lavender;
-            border: none;
-            border-radius: 5px;
-            padding: 10px;
-            font-size: 1.2rem;
+        .togglebtn {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 15px;
+            right: 3%;
             cursor: pointer;
+            display: none;
+        }
+
+        .togglebtn span {
+            display: block;
+            background-color: violet;
+            margin: 5px 0px;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
         }
 
         @media (max-width: 768px) {
-            nav .togglebtn {
+            .togglebtn {
                 display: block;
             }
 
             nav .navlinks {
-                display: none;
-                flex-direction: column;
-                background: rgba(255, 255, 255, 0.9);
                 position: absolute;
-                top: 60px;
-                right: 10px;
-                width: 200px;
-                padding: 10px;
+                top: 70px;
+                right: -100%;
+                width: 60%;
+                background: rgba(255, 255, 255, 0.9);
                 box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: right 0.3s ease;
+                opacity: 0;
             }
 
             nav .navlinks.open {
-                display: flex;
+                right: 0;
+                opacity: 1;
             }
 
             nav .navlinks li {
-                margin: 10px 0;
+                margin-bottom: 15px;
             }
         }
 
@@ -148,7 +148,6 @@
         .container h1 {
             font-size: 2.5rem;
             text-align: center;
-            margin: 50px 0 20px;
             color: black;
         }
 
@@ -167,21 +166,16 @@
             width: 90%;
             max-width: 300px;
             text-align: center;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: transform 0.6s ease, opacity 0.6s ease;
         }
 
         .project-box h2 {
             font-size: 1.5rem;
             color: violet;
-            margin-bottom: 10px;
         }
 
         .project-box p {
             font-size: 1rem;
             color: black;
-            text-align: justify;
         }
 
         footer {
@@ -193,38 +187,40 @@
     </style>
 </head>
 <body>
-    <div class="content">
-        <div class="hero-header">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-k"></i>
-                    <div class="logo-text">Kanagalakshmi</div>
+    <div class="hero-header">
+        <header>
+            <div class="logo">
+                <i class="fa-solid fa-k"></i>
+                <div class="logo-text">Kanagalakshmi</div>
+            </div>
+            <nav>
+                <div class="togglebtn" onclick="toggleMenu()">
+                    <span></span>
+                    <span></span>
+                    <span></span>
                 </div>
-                <nav>
-                    <button class="togglebtn">☰</button>
-                    <ul class="navlinks">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="container">
-                <h1>Projects</h1>
-                <div class="project-box-wrapper">
-                    <div class="project-box">
-                        <h2>Breast Cancer Prediction</h2>
-                        <p>Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p>
-                    </div>
-                    <div class="project-box">
-                        <h2>Responsive Portfolio</h2>
-                        <p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.</p>
-                    </div>
-                    <div class="project-box">
-                        <h2>Bank Management System</h2>
-                        <p>Using Java, this project serves as an interactive console-based system for bank operations like account creation, deposits, withdrawals, and balance inquiries.</p>
-                    </div>
+                <ul class="navlinks">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="container">
+            <h1>Projects</h1>
+            <div class="project-box-wrapper">
+                <div class="project-box">
+                    <h2>Breast Cancer Prediction</h2>
+                    <p>Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p>
+                </div>
+                <div class="project-box">
+                    <h2>Responsive Portfolio</h2>
+                    <p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.</p>
+                </div>
+                <div class="project-box">
+                    <h2>Bank Management System</h2>
+                    <p>Using Java, this project serves as an interactive console-based system for bank operations like account creation, deposits, withdrawals, and balance inquiries.</p>
                 </div>
             </div>
         </div>
@@ -233,23 +229,10 @@
         &copy; 2025 Kanagalakshmi. All rights reserved.
     </footer>
     <script>
-        // Mobile Menu Toggle
-        document.querySelector('.togglebtn').addEventListener('click', () => {
-            document.querySelector('.navlinks').classList.toggle('open');
-        });
-
-        // Project Animation
-        document.addEventListener('DOMContentLoaded', () => {
-            const projectBoxes = document.querySelectorAll('.project-box');
-            setTimeout(() => {
-                projectBoxes.forEach((box, index) => {
-                    setTimeout(() => {
-                        box.style.opacity = '1';
-                        box.style.transform = 'translateY(0)';
-                    }, index * 200);
-                });
-            }, 300);
-        });
+        function toggleMenu() {
+            const navLinks = document.querySelector('.navlinks');
+            navLinks.classList.toggle('open');
+        }
     </script>
 </body>
 </html>
