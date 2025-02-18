@@ -2,221 +2,246 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
-        /* General reset and styles */
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: Times New Roman, serif;
-            text-decoration: none;
         }
         body {
+            background: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg') no-repeat center center/cover;
             overflow-x: hidden;
-            background: #f9f9f9;
-        }
-        .hero-header {
-            min-height: 100vh;
-            background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid');
-            background-repeat:no repeat;
-            background-position:fixed;
-            background-size:cover;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        .wrapper {
-            max-width: 1280px;
-            margin: auto;
-            padding: 20px;
+            padding-top: 80px;
         }
         header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 10px 20px;
+            z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
         }
         .logo {
-            display: flex;
+            display: inline-flex;
+            justify-content: center;
             align-items: center;
         }
         .logo i {
-            background: violet;
+            height: 45px;
+            width: 45px;
+            background-color: violet;
+            border-radius: 50%;
             color: white;
+            font-weight: 700;
             font-size: 1.5rem;
             padding: 10px;
-            border-radius: 50%;
-            margin-right: 10px;
+            margin-right: 5px;
+            cursor: pointer;
+            text-align: center;
         }
-        .logo .logo-text {
+        .logo-text {
             font-size: 24px;
             color: black;
-        }
-        nav .togglebtn {
-            display: none;
-            flex-direction: column;
-            cursor: pointer;
-        }
-        nav .togglebtn span {
-            background: violet;
-            height: 3px;
-            margin: 5px 0;
-            width: 25px;
-            transition: all 0.3s;
+            font-weight: 500;
         }
         nav ul {
-            display: flex;
             list-style: none;
+            display: flex;
         }
         nav ul li {
             margin: 0 15px;
         }
         nav ul li a {
             color: violet;
-            transition: color 0.3s;
+            text-decoration: none;
+            transition: color 0.5s;
         }
         nav ul li a:hover {
             color: darkviolet;
         }
-        .container {
+        .togglebtn {
+            width: 35px;
+            height: 35px;
+            position: absolute;
+            top: 15px;
+            right: 3%;
+            z-index: 5;
+            cursor: pointer;
+            display: none;
+        }
+        .togglebtn span {
+            display: block;
+            background-color: violet;
+            margin: 5px 0;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+        }
+        .navlinks {
+            list-style-type: none;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 20px;
+            transition: none;
+        }
+
+        .navlinks li {
+            margin: 15px 0;
+            display:inline-block;
+        }
+         .navlinks li a {
+            color: violet;
+            margin-right: 2.5rem;
+            text-decoration: none;
+        }
+
+
+        .navlinks li a:hover {
+            color: darkviolet;
+        }
+        @media (max-width: 768px) {
+            .togglebtn {
+                display: block;
+            }
+            nav .navlinks {
+                position: absolute;
+                top: 70px;
+                right: -100%;
+                width: 60%;
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: right 0.3s ease;
+                opacity: 0;
+            }
+
+            .navlinks.open {
+                right: 0;
+                opacity: 1;
+            }
+            .navlinks li {
+                margin-bottom: 15px;
+            }
+        }
+        .hero-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
             text-align: center;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
         }
         .hero-pic {
-            flex: 1;
-            max-width: 300px;
-            margin: 10px;
+            width: 300px;
+            height: 300px;
             border-radius: 30%;
             overflow: hidden;
             border: 5px solid white;
-            box-shadow: 5px 10px 15px violet;
+            box-shadow: 5px 15px 15px violet;
+            margin-bottom: 30px;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.5s, transform 0.5s;
         }
         .hero-pic img {
+            height: 100%;
             width: 100%;
-            transition: transform 0.5s;
-        }
-        .hero-pic img:hover {
-            transform: scale(1.1);
+            object-fit: cover;
         }
         .hero-text {
-            flex: 1;
+            width: 100%;
+            max-width: 600px;
             padding: 20px;
-            max-width: 500px;
-        }
-        .hero-text h5 {
-            font-size: 14px;
-        }
-        .hero-text h5 span {
-            color: violet;
-        }
-        .hero-text h1 {
-            font-size: 2rem;
-            color: violet;
-        }
-        .hero-text p {
+            border-radius: 15px;
             background: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px violet;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
+            text-align: justify;
             line-height: 1.6;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+        .hero-text h1, .hero-text h5 {
+            margin: 10px 0;
         }
         .btn-group a {
             display: inline-block;
             background: violet;
             color: white;
             padding: 10px 20px;
-            border-radius: 25px;
-            text-align: center;
+            border-radius: 8px;
+            margin-top: 10px;
+            text-decoration: none;
             transition: background 0.3s;
         }
         .btn-group a:hover {
             background: darkviolet;
         }
         .social a {
-            margin: 0 10px;
-            font-size: 1.5rem;
+            margin: 10px;
             color: black;
+            font-size: 1.5rem;
+            transition: color 0.3s;
         }
         .social a:hover {
-            color: violet;
-        }
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: #333;
-            color: white;
-        }
-        @media (max-width: 768px) {
-            nav ul {
-                flex-direction: column;
-                position: absolute;
-                top: 70px;
-                right: -100%;
-                background: rgba(255, 255, 255, 0.9);
-                padding: 20px;
-                width: 200px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-                transition: right 0.3s ease;
-            }
-            nav ul.open {
-                right: 0;
-            }
-            nav .togglebtn {
-                display: flex;
-            }
-            .container {
-                flex-direction: column;
-                text-align: center;
-            }
+            color: darkviolet;
         }
     </style>
 </head>
 <body>
+    <header>
+        <div class="logo">
+            <i class="fa-regular fa-k"></i> <!-- 'K' in white -->
+            <div class="logo-text">Kanagalakshmi</div> <!-- Text in violet -->
+        </div>
+        <nav>
+            <div class="togglebtn" onclick="toggleMenu()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <ul class="navlinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
     <div class="hero-header">
-        <div class="wrapper">
-            <header>
-                <div class="logo">
-                    <i class="fa-solid fa-k"></i>
-                    <div class="logo-text">Kanagalakshmi</div>
+        <div class="container">
+            <div class="hero-pic">
+                <img src="images/myprof2.jpeg" alt="Profile Picture">
+            </div>
+            <div class="hero-text">
+                <h5>Hi, I'm <span>Student</span></h5>
+                <h1>Kanagalakshmi M</h1>
+                <p>I am an enthusiastic engineering fresher passionate about applying my skills to real-world challenges and driving innovation through continuous learning.</p>
+                <div class="btn-group">
+                    <a href="https://drive.google.com/file/d/1l8aJJSv-yWof1D0hL31pWc0En6RLjmZ-/view?usp=drivesdk" target="_blank">Download CV</a>
                 </div>
-                <nav>
-                    <div class="togglebtn">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
-                    <ul class="navlinks">
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="about.html">About</a></li>
-                        <li><a href="projects.html">Projects</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </nav>
-            </header>
-            <div class="container">
-                <div class="hero-pic">
-                    <img src="images/myprof2.jpeg" alt="Profile Picture">
-                </div>
-                <div class="hero-text">
-                    <h5>Hi, I'm <span>Student</span></h5>
-                    <h1>Kanagalakshmi M</h1>
-                    <p>I am an enthusiastic engineering fresher passionate about applying my skills to real-world challenges and driving innovation through continuous learning.</p>
-                    <div class="btn-group">
-                        <a href="https://drive.google.com/file/d/1l8aJJSv-yWof1D0hL31pWc0En6RLjmZ-/view?usp=drivesdk" target="_blank">Download CV</a>
-                    </div>
-                    <div class="social">
-                        <a href="https://www.linkedin.com/in/kanagalakshmi-m-96b04523b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="https://www.instagram.com/kanagalakshmi_murthy?igsh=M2U3OXNycHA3ZXNh"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://github.com/kanaga-m/kanaga-m"><i class="fa-brands fa-github"></i></a>
-                    </div>
+                <div class="social">
+                    <a href="https://www.linkedin.com/in/kanagalakshmi-m-96b04523b"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/kanagalakshmi_murthy"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://github.com/kanaga-m/kanaga-m"><i class="fa-brands fa-github"></i></a>
                 </div>
             </div>
         </div>
@@ -224,11 +249,31 @@
     <footer>
         &copy; 2024 Kanagalakshmi. All rights reserved.
     </footer>
+
     <script>
-        const togglebtn = document.querySelector('.togglebtn');
-        const navlinks = document.querySelector('.navlinks');
-        togglebtn.addEventListener('click', () => {
-            navlinks.classList.toggle('open');
+        function toggleMenu() {
+            document.querySelector('.navlinks').classList.toggle('open');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const heroHeader = document.querySelector('.hero-header');
+            const heroPic = document.querySelector('.hero-pic');
+            const heroText = document.querySelector('.hero-text');
+            
+            setTimeout(() => {
+                heroHeader.style.opacity = '1';
+                heroHeader.style.transform = 'translateY(0)';
+            }, 500);
+
+            setTimeout(() => {
+                heroPic.style.opacity = '1';
+                heroPic.style.transform = 'translateY(0)';
+            }, 700);
+
+            setTimeout(() => {
+                heroText.style.opacity = '1';
+                heroText.style.transform = 'translateY(0)';
+            }, 900);
         });
     </script>
 </body>
