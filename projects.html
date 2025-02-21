@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects - Kanagalakshmi</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
         * {
             box-sizing: border-box;
@@ -20,14 +22,20 @@
 
         .hero-header {
             width: 100%;
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg');
             background-size: cover;
             background-position: center;
+        }
+
+        .wrapper {
+            width: 1280px;
+            max-width: 95%;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         header {
@@ -56,12 +64,10 @@
             color: white;
             font-weight: 700;
             font-size: 1.5rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            padding: 10px;
             margin-right: 5px;
             cursor: pointer;
-            font-style: normal;
+            text-align: center;
         }
 
         .logo .logo-text {
@@ -138,18 +144,20 @@
             }
         }
 
-        .container {
-            margin-top: 100px;
-            padding: 20px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+       .container {
+    margin-top: 100px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;  /* Centering the content */
+}
 
-        .container h1 {
-            font-size: 2.5rem;
-            text-align: center;
-            color: black;
-        }
+.container h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: black;
+    margin-top: 120px;  /* Push content below the header */
+}
 
         .project-box-wrapper {
             display: flex;
@@ -159,17 +167,26 @@
         }
 
         .project-box {
-            background: rgba(255, 255, 255, 0.9);
-            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
             box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
             padding: 15px;
             width: 90%;
             max-width: 300px;
             text-align: center;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .project-box.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .project-box h2 {
-            font-size: 1.5rem;
+            font-size: 1.0rem;
             color: violet;
         }
 
@@ -188,51 +205,44 @@
 </head>
 <body>
     <div class="hero-header">
-        <header>
-            <div class="logo">
-                <i class="fa-solid fa-k"></i>
-                <div class="logo-text">Kanagalakshmi</div>
-            </div>
-            <nav>
-                <div class="togglebtn" onclick="toggleMenu()">
-                    <span></span>
-                    <span></span>
-                    <span></span>
+        <div class="wrapper">
+            <header>
+                <div class="logo">
+                    <i class="fa-regular fa-k"></i>
+                    <div class="logo-text">Kanagalakshmi</div>
                 </div>
-                <ul class="navlinks">
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="about.html">About</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div class="container">
-            <h1>Projects</h1>
-            <div class="project-box-wrapper">
-                <div class="project-box">
-                    <h2>Breast Cancer Prediction</h2>
-                    <p>Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p>
-                </div>
-                <div class="project-box">
-                    <h2>Responsive Portfolio</h2>
-                    <p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.</p>
-                </div>
-                <div class="project-box">
-                    <h2>Bank Management System</h2>
-                    <p>Using Java, this project serves as an interactive console-based system for bank operations like account creation, deposits, withdrawals, and balance inquiries.</p>
+                <nav>
+                    <div class="togglebtn" onclick="toggleMenu()">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <ul class="navlinks">
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="container">
+                <h1>Projects</h1>
+                <div class="project-box-wrapper">
+                    <div class="project-box"><h2>Breast Cancer Prediction</h2><p> Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p></div>
+
+                   <div class="project-box"><h2>Responsive Portfolio</h2><p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.
+</p></div>
+                    <div class="project-box"><h2>FedAP: Federated Learning</h2><p>FedAP-Federated learning.FedAvg in federated learning enables collaborative healthcare data analysis by averaging locally trained
+models.</p></div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>
-        &copy; 2025 Kanagalakshmi. All rights reserved.
-    </footer>
+    <footer>&copy; 2024 Kanagalakshmi. All rights reserved.</footer>
     <script>
-        function toggleMenu() {
-            const navLinks = document.querySelector('.navlinks');
-            navLinks.classList.toggle('open');
-        }
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.project-box').forEach(box => setTimeout(() => box.classList.add('show'), 500));
+        });
     </script>
 </body>
 </html>
