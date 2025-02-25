@@ -144,19 +144,19 @@
             }
         }
 
-       .container {
+        .container {
             margin-top: 100px;
             padding: 20px;
             max-width: 1200px;
             margin: 0 auto;
-            text-align: center;  /* Centering the content */
+            text-align: center;  
         }
 
         .container h1 {
             font-size: 2.5rem;
             text-align: center;
             color: black;
-            margin-top: 120px;  /* Push content below the header */
+            margin-top: 120px;
         }
 
         .project-box-wrapper {
@@ -164,10 +164,11 @@
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
+            margin-top: 30px;
         }
 
         .project-box {
-            background: rgba(255, 255, 255, 0.3);
+            background: rgba(255, 255, 255, 0.7);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
@@ -186,13 +187,23 @@
         }
 
         .project-box h2 {
-            font-size: 1.0rem;
+            font-size: 1.2rem;
             color: violet;
+            margin-bottom: 10px;
         }
 
         .project-box p {
             font-size: 1rem;
             color: black;
+            margin-bottom: 10px;
+        }
+
+        .project-box img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 10px;
         }
 
         footer {
@@ -228,12 +239,23 @@
             <div class="container">
                 <h1>Projects</h1>
                 <div class="project-box-wrapper">
-                    <div class="project-box"><h2>Breast Cancer Prediction</h2><p> Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p></div>
+                    <div class="project-box">
+                        <img src="https://via.placeholder.com/300x200?text=Breast+Cancer+Prediction" alt="Breast Cancer Prediction">
+                        <h2>Breast Cancer Prediction</h2>
+                        <p>Using neural networks, this project predicts breast cancer from medical data, aiding in early diagnosis and treatment planning.</p>
+                    </div>
 
-                   <div class="project-box"><h2>Responsive Portfolio</h2><p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.
-</p></div>
-                    <div class="project-box"><h2>FedAP: Federated Learning</h2><p>FedAP-Federated learning.FedAvg in federated learning enables collaborative healthcare data analysis by averaging locally trained
-models.</p></div>
+                    <div class="project-box">
+                        <img src="https://via.placeholder.com/300x200?text=Responsive+Portfolio" alt="Responsive Portfolio">
+                        <h2>Responsive Portfolio</h2>
+                        <p>This portfolio showcases various projects, skills, and achievements. It's optimized for all screen sizes and devices.</p>
+                    </div>
+
+                    <div class="project-box">
+                        <img src="https://via.placeholder.com/300x200?text=FedAP+Federated+Learning" alt="FedAP Federated Learning">
+                        <h2>FedAP: Federated Learning</h2>
+                        <p>FedAP-Federated learning. FedAvg in federated learning enables collaborative healthcare data analysis by averaging locally trained models.</p>
+                    </div>
                 </div>
             </div>
         </div>
