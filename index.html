@@ -10,7 +10,7 @@
             box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: Times New Roman, serif;
+            font-family: 'Times New Roman', serif;
         }
         body {
             background: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg') no-repeat center center/cover;
@@ -31,6 +31,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 1000;
+            backdrop-filter: blur(10px);
         }
         .logo {
             display: flex;
@@ -53,20 +54,65 @@
             color: black;
             font-weight: 500;
         }
-        nav ul {
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        nav .navlinks {
             list-style: none;
             display: flex;
         }
-        nav ul li {
+        nav .navlinks li {
             margin: 0 15px;
         }
-        nav ul li a {
+        nav .navlinks li a {
             color: violet;
             text-decoration: none;
             transition: color 0.5s;
         }
-        nav ul li a:hover {
+        nav .navlinks li a:hover {
             color: darkviolet;
+        }
+        .togglebtn {
+            width: 35px;
+            height: 30px;
+            position: absolute;
+            top: 25px;
+            right: 3%;
+            z-index: 5;
+            cursor: pointer;
+            display: none;
+        }
+        .togglebtn span {
+            display: block;
+            background-color: violet;
+            margin: 5px 0;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+        }
+        @media (max-width: 768px) {
+            .togglebtn {
+                display: block;
+            }
+            nav .navlinks {
+                position: absolute;
+                top: 80px;
+                right: -100%;
+                width: 60%;
+                background: rgba(255, 255, 255, 0.9);
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+                flex-direction: column;
+                align-items: center;
+                padding: 20px 0;
+                transition: right 0.3s ease;
+            }
+            nav .navlinks.open {
+                right: 0;
+            }
+            nav .navlinks li {
+                margin-bottom: 15px;
+            }
         }
         .hero-header {
             display: flex;
@@ -75,6 +121,7 @@
             height: calc(100vh - 80px);
             padding: 0 10%;
             text-align: center;
+            gap: 30px; /* Adds space between image and text */
         }
         .hero-pic {
             width: 300px;
@@ -83,16 +130,11 @@
             overflow: hidden;
             border: 5px solid white;
             box-shadow: 5px 15px 15px violet;
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
         }
         .hero-pic img {
             height: 100%;
             width: 100%;
             object-fit: cover;
-        }
-        .hero-pic:hover {
-            transform: scale(1.05);
-            box-shadow: 10px 20px 20px darkviolet;
         }
         .hero-text {
             width: 100%;
@@ -102,44 +144,37 @@
             background: rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(10px);
             box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
-            text-align: justify;
-            line-height: 1.6;
-            margin-left: 50px;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .hero-text.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .hero-text h1, .hero-text h5 {
-            margin: 10px 0;
             text-align: center;
         }
+        .hero-text h5 {
+            font-size: 1.5rem;
+            color: black;
+        }
         .hero-text h5 span {
-            display: inline-block;
             font-weight: bold;
             color: violet;
         }
+        .btn-group {
+            margin-top: 20px;
+        }
         .btn-group a {
-            display: inline-block;
             background: violet;
             color: white;
             padding: 10px 20px;
             border-radius: 8px;
-            margin-top: 10px;
             text-decoration: none;
             transition: background 0.3s;
         }
         .btn-group a:hover {
             background: darkviolet;
         }
+        .social {
+            margin-top: 20px;
+        }
         .social a {
             margin: 10px;
             color: black;
-            font-size: 1.5rem;
-            transition: color 0.3s;
+            font-size: 1.8rem;
         }
         .social a:hover {
             color: darkviolet;
@@ -150,18 +185,6 @@
             background-color: #333;
             color: white;
         }
-        @media (max-width: 768px) {
-            .hero-header {
-                flex-direction: column;
-            }
-            .hero-pic {
-                margin-bottom: 20px;
-            }
-            .hero-text {
-                margin-left: 0;
-                text-align: center;
-            }
-        }
     </style>
 </head>
 <body>
@@ -170,12 +193,17 @@
             <i class="fa-regular fa-k"></i>
             <div class="logo-text">Kanagalakshmi</div>
         </div>
+        <div class="togglebtn" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
         <nav>
             <ul class="navlinks">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">About</a></li>
-                <li><a href="#">Projects</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="contact.html">Contact</a></li>
             </ul>
         </nav>
     </header>
@@ -187,14 +215,14 @@
         <div class="hero-text">
             <h5>Hi, I'm <span id="role"></span></h5>
             <h1>Kanagalakshmi M</h1>
-            <p>"I am an enthusiastic engineering fresher passionate about applying my skills to real-world challenges and driving innovation through continuous learning. I have a strong foundation in software development, problem-solving, and emerging technologies. I am eager to collaborate on impactful projects, enhance my technical expertise, and contribute to innovative solutions."</p>
+            <p>"I am an enthusiastic engineering fresher eager to apply my technical skills to real-world challenges and contribute to innovative solutions. With a strong passion for continuous learning, I strive to enhance my knowledge, adapt to emerging technologies, and make a meaningful impact in the field."</p>
             <div class="btn-group">
-                <a href="#" target="_blank">Download CV</a>
+                <a href="resume.pdf" download>Download CV</a>
             </div>
             <div class="social">
-                <a href="#"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="#"><i class="fa-brands fa-instagram"></i></a>
-                <a href="#"><i class="fa-brands fa-github"></i></a>
+                <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -202,47 +230,26 @@
     <footer>&copy; 2024 Kanagalakshmi. All rights reserved.</footer>
 
     <script>
-        // Typing effect for roles
-        const roles = ['Frontend Developer', 'Software Developer'];
-        let index = 0;
-        let charIndex = 0;
-        let typingSpeed = 100;
-        let deletingSpeed = 50;
-        let delayBetweenRoles = 2000;
-
-        function typeRole() {
-            const roleElement = document.getElementById('role');
-            let currentRole = roles[index];
-
-            if (charIndex < currentRole.length) {
-                roleElement.innerHTML += currentRole.charAt(charIndex);
-                charIndex++;
-                setTimeout(typeRole, typingSpeed);
-            } else {
-                setTimeout(eraseRole, delayBetweenRoles);
-            }
+        function toggleMenu() {
+            document.querySelector('.navlinks').classList.toggle('open');
         }
 
-        function eraseRole() {
-            const roleElement = document.getElementById('role');
-            let currentRole = roles[index];
+        const roles = ["Front-End Developer", "Software Developer"];
+        let index = 0, charIndex = 0, deleting = false;
 
-            if (charIndex > 0) {
-                roleElement.innerHTML = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-                setTimeout(eraseRole, deletingSpeed);
-            } else {
-                index = (index + 1) % roles.length;
-                setTimeout(typeRole, typingSpeed);
-            }
+        function typeEffect() {
+            const roleSpan = document.getElementById("role");
+            const currentText = roles[index].substring(0, charIndex);
+            roleSpan.innerText = currentText;
+
+            if (!deleting && charIndex < roles[index].length) charIndex++;
+            else if (deleting && charIndex > 0) charIndex--;
+            else deleting = !deleting, index = (index + 1) % roles.length;
+
+            setTimeout(typeEffect, deleting ? 50 : 100);
         }
 
-        setTimeout(typeRole, 1000);
-
-        // Transition effect for hero-text
-        window.addEventListener("load", () => {
-            document.querySelector('.hero-text').classList.add('show');
-        });
+        typeEffect();
     </script>
 </body>
 </html>
