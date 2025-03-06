@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About</title>
+    <title>About - Kanagalakshmi</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
         * {
@@ -43,10 +43,12 @@
             left: 0;
             width: 100%;
             padding: 10px 20px;
-            z-index: 1000;
+            
             display: flex;
             justify-content: space-between;
             align-items: center;
+            
+            z-index: 1000;
         }
 
         .logo {
@@ -137,7 +139,8 @@
             align-items: center;
             justify-content: center;
             gap: 20px;
-            margin-top: 50px;
+            margin-top: 100px;
+            flex-direction: column;
         }
 
         .hero-pic {
@@ -159,19 +162,30 @@
             transform: scale(1.2);
         }
 
-        .container h1 {
-            font-size: 2.5rem;
+        .about-content {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            margin-top: 20px;
+            text-align: center;
+            max-width: 800px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .about-content:hover {
+            transform: scale(1.05);
+        }
+
+        .about-content p {
+            font-size: 18px;
             color: black;
+            line-height: 1.6;
         }
 
         .skills-section {
             text-align: center;
             margin-top: 50px;
-        }
-
-        .skills-section h2 {
-            color: black;
-            margin-bottom: 10px;
         }
 
         .skills-container {
@@ -243,6 +257,15 @@
                 <h1>About Me</h1>
             </div>
 
+            <div class="about-content">
+                <p>
+                    I am Kanagalakshmi, a passionate software developer with expertise in Java, Python, Machine Learning, and Deep Learning. 
+                    I enjoy solving real-world problems and developing innovative solutions using cutting-edge technologies. My areas of interest include 
+                    Artificial Intelligence, Cloud Computing, and Full-Stack Development. I strive for excellence in every project I undertake and 
+                    continuously work on improving my skills.
+                </p>
+            </div>
+
             <div class="skills-section">
                 <h2>Technical Skills</h2>
                 <div class="skills-container">
@@ -255,17 +278,17 @@
                     <div class="skill">Spring Boot</div>
                     <div class="skill">ReactJS</div>
                     <div class="skill">SQL & NoSQL</div>
-                    
+                </div>
+                 <h2>Soft Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">Creativity</div>
+                    <div class="skill">Adaptability</div>
+                    <div class="skill">Communication</div>
+                    <div class="skill">Problem-Solving</div>
+                    <div class="skill">Analytical Thinking</div>
+                    <div class="skill">Tean Work</div>
                 </div>
 
-                <h2>Soft Skills</h2>
-                <div class="skills-container">
-                    <div class="skill">Communication</div>
-                    <div class="skill">Leadership</div>
-                    <div class="skill">Problem-Solving</div>
-                    <div class="skill">Teamwork</div>
-                    <div class="skill">Adaptability</div>
-                </div>
             </div>
         </div>
     </div>
@@ -274,8 +297,7 @@
 
     <script>
         function toggleMenu() {
-            const navMenu = document.getElementById("nav-menu");
-            navMenu.classList.toggle("open");
+            document.getElementById("nav-menu").classList.toggle("open");
         }
     </script>
 </body>
