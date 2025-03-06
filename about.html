@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About - Kanagalakshmi</title>
+    <title>About</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <style>
         * {
@@ -47,8 +47,6 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            
-            backdrop-filter: blur(10px);
         }
 
         .logo {
@@ -75,89 +73,71 @@
             color: black;
         }
 
-        nav .navlinks {
-            list-style-type: none;
-            display: flex;
-        }
-
-        nav .navlinks li {
-            margin-right: 2.5rem;
-            
-
-        }
-
-        nav .navlinks li a {
-            color: violet;
-            text-decoration: none;
-            font-size: 1rem;
-            background-image: url('https://img.freepik.com/premium-vector/hand-painted-watercolor-blue-abstract-background_278222-7243.jpg?semt=ais_hybrid',width:50%,height:70%);
-        background-size:cover;
-
-
-            }
-        nav .navlinks li a:hover {
-            color: darkviolet;
-        }
-
-        .togglebtn {
+        .toggle {
             width: 35px;
-    height: 30px;
-    position: absolute;
-    top:35px;
-    right: 3%;
-    z-index: 5;
-    cursor: pointer;
-    display: none;
+            height: 30px;
+            cursor: pointer;
+            display: block;
+            position: relative;
+            z-index: 10;
         }
 
-        .togglebtn span {
-           display: block;
-    background-color: violet;
-    margin: 5px 0px;
-    width:100%;
-    height:3px;
-    transition: 0.3s;
-    transition-property:  transform, opacity;
+        .toggle span {
+            display: block;
+            background-color: violet;
+            margin: 5px 0;
+            width: 100%;
+            height: 3px;
+            transition: 0.3s;
+        }
+
+        nav {
+            position: absolute;
+            top: 60px;
+            right: -100%;
+            width: 60%;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 0;
+            transition: right 0.3s ease-in-out;
+        }
+
+        nav.open {
+            right: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+
+        nav ul li {
+            margin: 15px 0;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            font-size: 15px;
+            color: violet;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: flex;
+                right: -100%;
+            }
         }
 
         .container {
             display: flex;
-            flex-wrap: wrap;
             align-items: center;
-            justify-content: space-between;
-            padding-top: 6rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .container h1 {
-            font-size: 2.5rem;
-            color: black;
-            margin-bottom: 20px;
-        }
-
-        .about-content {
-            width: 100%;
-            max-width: 600px;
-            padding: 20px;
-            border-radius: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(128, 0, 128, 0.3);
-            text-align: justify;
-            line-height: 1.6;
-            opacity: 0;
-            transform: translateY(30px);
-            transition: transform 0.5s ease, opacity 0.5s ease;
-        }
-
-        .about-content p {
-            font-size: 20px;
-        }
-
-        .about-content.show {
-            opacity: 1;
-            transform: translateY(0);
+            justify-content: center;
+            gap: 20px;
+            margin-top: 50px;
         }
 
         .hero-pic {
@@ -179,31 +159,42 @@
             transform: scale(1.2);
         }
 
-        @media(max-width: 768px) {
-            .togglebtn {
-                display: block;
-            }
+        .container h1 {
+            font-size: 2.5rem;
+            color: black;
+        }
 
-            nav .navlinks {
-                position: absolute;
-                top: 90px;
-                right: -100%;
-                width: 60%;
-                background: rgba(255, 255, 255, 0.9);
-                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-                flex-direction: column;
-                align-items: center;
-                padding: 20px 0;
-                transition: right 0.3s ease;
-            }
+        .skills-section {
+            text-align: center;
+            margin-top: 50px;
+        }
 
-            nav .navlinks.open {
-                right: 0;
-            }
+        .skills-section h2 {
+            color: black;
+            margin-bottom: 10px;
+        }
 
-            nav .navlinks li {
-                margin-bottom: 15px;
-            }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .skill {
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: violet;
+            color: white;
+            font-size: 18px;
+            transition: 0.3s;
+            cursor: pointer;
+        }
+
+        .skill:hover {
+            background: darkviolet;
+            transform: scale(1.1);
         }
 
         footer {
@@ -211,6 +202,14 @@
             padding: 20px;
             background-color: #333;
             color: white;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                text-align: center;
+            }
         }
     </style>
 </head>
@@ -222,13 +221,13 @@
                     <i class="fa-regular fa-k"></i>
                     <div class="logo-text">Kanagalakshmi</div>
                 </div>
-                <div class="togglebtn" onclick="toggleMenu()">
+                <div class="toggle" onclick="toggleMenu()">
                     <span></span>
                     <span></span>
                     <span></span>
                 </div>
-                <nav>
-                    <ul class="navlinks">
+                <nav id="nav-menu">
+                    <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
                         <li><a href="projects.html">Projects</a></li>
@@ -236,42 +235,47 @@
                     </ul>
                 </nav>
             </header>
+
             <div class="container">
-                <h1>About Me</h1>
-                <div class="about-content">
-                    <p>
-                        Hi, I’m Kanagalakshmi, a Computer Science Engineering student and I'm passionate about technology and problem-solving.
-                        With a solid foundation in software development, algorithms, data structures, and systems design, I am continuously seeking
-                        to expand my skills through hands-on projects, hackathons, and internships. I’m particularly interested in artificial intelligence,
-                        machine learning, and cloud computing.
-                        <br><br>
-                        I am dedicated to improving my problem-solving abilities and creating innovative software solutions. Outside of coding, I enjoy
-                        collaborating on open-source projects, attending tech meetups, and staying updated with the latest industry trends.
-                    </p>
-                </div>
                 <div class="hero-pic">
                     <img src="images/myprof2.jpeg" alt="Kanagalakshmi">
+                </div>
+                <h1>About Me</h1>
+            </div>
+
+            <div class="skills-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">Java</div>
+                    <div class="skill">Python</div>
+                    <div class="skill">Machine Learning</div>
+                    <div class="skill">Deep Learning</div>
+                    <div class="skill">MLOps</div>
+                    <div class="skill">Cloud Computing</div>
+                    <div class="skill">Spring Boot</div>
+                    <div class="skill">ReactJS</div>
+                    <div class="skill">SQL & NoSQL</div>
+                    <div class="skill">Kubernetes</div>
+                </div>
+
+                <h2>Soft Skills</h2>
+                <div class="skills-container">
+                    <div class="skill">Communication</div>
+                    <div class="skill">Leadership</div>
+                    <div class="skill">Problem-Solving</div>
+                    <div class="skill">Teamwork</div>
+                    <div class="skill">Adaptability</div>
                 </div>
             </div>
         </div>
     </div>
-    <footer>
-        &copy; 2024 Kanagalakshmi. All rights reserved.
-    </footer>
+
+    <footer>&copy; 2025 Kanagalakshmi. All Rights Reserved.</footer>
 
     <script>
-        // Add animation to the about content on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            const aboutContent = document.querySelector('.about-content');
-            setTimeout(() => {
-                aboutContent.classList.add('show');
-            }, 500);
-        });
-
-        // Toggle navigation menu
         function toggleMenu() {
-            const navLinks = document.querySelector('.navlinks');
-            navLinks.classList.toggle('open');
+            const navMenu = document.getElementById("nav-menu");
+            navMenu.classList.toggle("open");
         }
     </script>
 </body>
